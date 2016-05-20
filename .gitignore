@@ -1,0 +1,5 @@
+# custom scripts
+/scripts/*.js
+/scripts/*.json
+
+/node_modules/*
