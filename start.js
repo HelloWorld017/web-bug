@@ -60,10 +60,10 @@ var normalizePort = (val) => {
 	}
 
 	return false;
-});
+};
 
-var port = nomalizePort(process.env.PORT || '80');
-var httpsPort = nomalizePort(process.env.HTTPS_PORT || '443');
+var port = normalizePort(process.env.PORT || '80');
+var httpsPort = normalizePort(process.env.HTTPS_PORT || '443');
 
 if(cert){
 	var key = fs.readFileSync(process.env.KEY_LOCATION || 'key.pem');
