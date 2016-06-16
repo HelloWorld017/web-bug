@@ -69,7 +69,7 @@ var normalizePort = ((val) => {
 	}
 
 	return false;
-};
+});
 
 var port = normalizePort(process.env.PORT || '80');
 var httpsPort = normalizePort(process.env.HTTPS_PORT || '443');
