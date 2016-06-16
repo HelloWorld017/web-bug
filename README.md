@@ -3,6 +3,14 @@ A tracking bot server.
 
 ----
 
+## Installing
+```
+$ git clone https://github.com/HelloWorld017/web-bug.git
+$ npm install
+```
+
+You can start it with `$ npm start`
+
 ## How to?
 1. Add an image to your email, web, etc....  
 
@@ -46,7 +54,7 @@ global.events.on('tag.a', (data) => {
 	console.log(data.data);
 });
 ```
-The data will logged when image which tag is 'a'.
+The data will logged when image which tag is 'a' is loaded.
 
 ----
 
