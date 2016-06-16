@@ -25,6 +25,15 @@ app.get('/:tag/:data', (req, res, next) => {
 	res.status(200).type('image/gif').send(bug);
 });
 
+app.get('/script/res/:plugin', (req, res, next) => {
+	global.events.emit('request', {
+		script: req.params.plugin,
+		request: req,
+		response: res,
+		next: next
+	});
+});
+
 var onErr = (err) => {
 	if(err.syscall !== 'listen') throw err;
 
@@ -48,7 +57,7 @@ var onListening = () => {
 	console.log(chalk.cyan((typeof addr === 'string') ? 'Pipe ' + addr : 'Listening on port ' + addr.port));
 };
 
-var normalizePort = (val) => {
+var normalizePort = ((val) => {
 	var portNumber = parseInt(val, 10);
 
 	if(isNaN(portNumber)){
@@ -62,8 +71,8 @@ var normalizePort = (val) => {
 	return false;
 });
 
-var port = nomalizePort(process.env.PORT || '80');
-var httpsPort = nomalizePort(process.env.HTTPS_PORT || '443');
+var port = normalizePort(process.env.PORT || '80');
+var httpsPort = normalizePort(process.env.HTTPS_PORT || '443');
 
 if(cert){
 	var key = fs.readFileSync(process.env.KEY_LOCATION || 'key.pem');
